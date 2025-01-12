@@ -1,4 +1,3 @@
-import React from 'react'
 import image from '../assets/foreground.png'
 
 interface AuthImageProps {
