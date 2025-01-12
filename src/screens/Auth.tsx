@@ -22,7 +22,7 @@ function Auth() {
                                 <AuthInput title="Password" placeholder="Enter your password here" type="password" />
                                 <div className="flex mb-5 w-[90%] md:w-96">
                                     <p className={`text-zinc-500 text-base`}>Don't have an account? &nbsp;</p>
-                                    <p onClick={() => setshowLogin(false)} className="text-blue-700 hover:underline font-bold text-base">Sign up</p>
+                                    <p onClick={() => setshowLogin(false)} className="text-blue-700 hover:underline font-bold text-base cursor-pointer">Sign up</p>
                                 </div>
                                 <input type="submit" value="Sign up" className="bg-blue-700 w-[90%] md:w-96 h-12 rounded-md text-white my-2" />
                                 <div className="flex w-[90%] md:w-96 justify-center items-center m-3"><div className={`flex flex-1 bg-zinc-400 dark:bg-zinc-600 h-0.5`} /> <p className={`mx-2 text-black dark:text-white`}>or</p> <div className={`flex flex-1 bg-zinc-400 dark:bg-zinc-600 h-0.5`} /></div>
@@ -52,7 +52,7 @@ function Auth() {
                                 <AuthInput title="Confirm password" placeholder="Confirm your password here" type="password" />
                                 <div className="flex mb-5 w-[90%] md:w-96">
                                     <p className={`text-zinc-500 text-base`}>Already have an account? &nbsp;</p>
-                                    <p onClick={() => setshowLogin(true)} className="text-blue-700 hover:underline font-bold text-base">Sign In</p>
+                                    <p onClick={() => setshowLogin(true)} className="text-blue-700 hover:underline font-bold text-base cursor-pointer">Sign In</p>
                                 </div>
                                 <input type="submit" value="Sign in" className="bg-blue-700 w-[90%] md:w-96 h-12 rounded-md text-white my-2" />
                                 <div className="flex w-[90%] md:w-96 justify-center items-center m-3"><div className={`flex flex-1 bg-zinc-400 dark:bg-zinc-600 h-0.5`} /> <p className={`mx-2 text-black dark:text-white`}>or</p> <div className={`flex flex-1 bg-zinc-400 dark:bg-zinc-600 h-0.5`} /></div>

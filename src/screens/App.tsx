@@ -1,10 +1,10 @@
-import Auth from "./Auth"
+import Home from "./Home"
 
 function App() {
 
   return (
     <>
-     <Auth/>
+     <Home/>
     </>
   )
 }
