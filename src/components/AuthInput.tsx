@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
-import { FaEye, FaEyeSlash, FaLock, FaUser } from 'react-icons/fa';
+import { useState } from 'react'
+import { FaEye, FaEyeSlash, FaUser } from 'react-icons/fa';
 import { IoMdMail } from 'react-icons/io';
-import { MdEmail } from 'react-icons/md';
 
 interface AuthInputProps {
     title: string;
