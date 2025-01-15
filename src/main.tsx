@@ -1,9 +1,9 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './screens/App.tsx'
+import AgoraRTC, { AgoraRTCProvider } from 'agora-rtc-react'
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+  <AgoraRTCProvider client={AgoraRTC.createClient({ mode: 'rtc', codec: 'vp8' })}>
     <App />
-  </StrictMode>,
+  </AgoraRTCProvider>,
 )

@@ -6,18 +6,20 @@ import premium from '../assets/premium.svg'
 import settings from '../assets/settings.svg'
 import report from '../assets/report.svg'
 import camera from '../assets/camera.svg'
-import resize from '../assets/resize.svg'
+import maximize from '../assets/maximize.svg'
+import minimize from '../assets/minimize.svg'
 import { useRef, useState } from "react"
 import Webcam from "react-webcam"
+import Basics from "../components/Basics"
 
 
 function Home() {
-    const [showMe, setshowMe] = useState<boolean>(true)
+    const [showMe, setshowMe] = useState<boolean>(false)
     const [maximizeMe, setmaximizeMe] = useState<boolean>(false)
     const webcamRef = useRef<Webcam>(null);
 
     return (
-        <div className={` bg-zinc-200 dark:bg-zinc-900 w-full min-h-lvh flex items-center`}>
+        <div className={` bg-zinc-200 dark:bg-zinc-900 w-full min-h-lvh flex items-center justify-between`}>
             <div className="flex w-full md:w-7/12 bg-blue-100 bg-opacity-60 min-h-lvh relative justify-center items-end">
                 {
                     !maximizeMe && (
@@ -34,12 +36,12 @@ function Home() {
                                     >
                                     </Webcam>
                                     <div className="flex flex-col absolute right-3  w-8 md:w-10 justify-center items-center top-3 gap-y-2">
-                                        <div onClick={() => setshowMe(prev => !prev)} className="w-8 h-8 md:w-10 md:h-10 rounded-full flex justify-center items-center cursor-pointer bg-blue-300 bg-opacity-50">
+                                        <button onClick={() => setshowMe(prev => !prev)} className="w-8 h-8 md:w-10 md:h-10 rounded-full flex justify-center items-center cursor-pointer bg-blue-300 bg-opacity-50">
                                             <img src={camera} alt="show and hide button" className={`object-contain w-6 h-6`} />
-                                        </div>
-                                        <div onClick={() => setmaximizeMe(true)} className="w-8 h-8 md:w-10 md:h-10 rounded-full hidden md:flex justify-center items-center cursor-pointer bg-blue-300 bg-opacity-50">
-                                            <img src={resize} alt="resize button" className={`object-contain w-6 h-6`} />
-                                        </div>
+                                        </button>
+                                        <button onClick={() => setmaximizeMe(true)} className="w-8 h-8 md:w-10 md:h-10 rounded-full hidden md:flex justify-center items-center cursor-pointer bg-blue-300 bg-opacity-50">
+                                            <img src={maximize} alt="resize button" className={`object-contain w-6 h-6`} />
+                                        </button>
                                     </div>
                                 </div>
                             </Draggable>
@@ -73,8 +75,28 @@ function Home() {
                 </div>
 
             </div>
-            <div className="flex">
-
+            <div className="hidden w-full md:flex md:w-5/12 bg-blue-400 bg-opacity-60 min-h-lvh relative justify-center items-end">
+                {
+                    maximizeMe && (
+                        <div className="flex absolute w-full h-full bg-slate-300 shadow-lg z-10 overflow-hidden">
+                            <Webcam
+                                ref={webcamRef}
+                                screenshotFormat="image/png"
+                                videoConstraints={{
+                                    facingMode: 'user',
+                                }}
+                                className={`absolute flex object-cover w-full h-full`}
+                            >
+                            </Webcam>
+                            <div className="flex flex-col absolute right-3 w-10 justify-center items-center top-3 gap-y-2">
+                                <div onClick={() => setmaximizeMe(false)} className="w-8 h-8 md:w-10 md:h-10 rounded-full hidden md:flex justify-center items-center cursor-pointer bg-blue-300 bg-opacity-50">
+                                    <img src={minimize} alt="resize button" className={`object-contain w-6 h-6`} />
+                                </div>
+                            </div>
+                        </div>
+                    )
+                }
+            <Basics/>
             </div>
         </div>
     )
